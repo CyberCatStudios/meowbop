@@ -1,5 +1,6 @@
 # Imports
 import threading
+from mserver import *
 
 # Defining variables
 version = "0.0.1"
@@ -39,6 +40,9 @@ def commandProcessorFunc():
             print("Shutting down...")
             quit()
 # Defining and starting threads
+
 CommandProcessor = threading.Thread(target=commandProcessorFunc)
+mbopServer = threading.Thread(target=mbopServerFunc)
+mbopServer.start()
 CommandProcessor.start()
 
